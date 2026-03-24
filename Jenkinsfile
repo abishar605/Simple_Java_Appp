@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/abishar605/Simple_Java_Appp.git'
-            }
-        }
-
         stage('Build with Maven') {
             steps {
                 sh 'mvn clean package'
@@ -23,7 +17,7 @@ pipeline {
 
         stage('Push to DockerHub') {
             steps {
-                sh 'docker login -u AbsihaR26 -p AbishaR@2005'
+                sh 'docker login -u AbishaR26 -p AbishaR@2005'
                 sh 'docker push AbishaR26/java-app:latest'
             }
         }
